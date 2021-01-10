@@ -1,0 +1,11 @@
+<div class="col-4">
+  <div class="card" style="width: 18rem;">
+    <%= image_tag 'https://picsum.photos/320/240',class: "card-img-top" %>
+    <div class="card-body">
+      <h5 class="card-title"><%= product.name.truncate(25)%></h5>
+      <p class="card-text"><%= product.description.truncate(50) %></p>
+      <p><%= number_to_currency(product.price, unit: "UAH", separator: ",", delimiter: " ", format: "%n %u") %></p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
