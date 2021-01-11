@@ -6,6 +6,7 @@
           <%= link_to_unless_current category.name.upcase, category_path(category), class: "nav-link p-0" %>
         <% end %>
       </li>
+      <%= @product %>
     </ul>
   </div>
 </nav>
