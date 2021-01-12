@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root "products#index", as: "home"
-  resources :categories, only: :show do
+  resources :categories do
     resources :products do
       get "search", on: :collection
     end
   end
 
-  resources :products, only: [:search] do
+  resources :products, only: [:search, :index] do
     get "search", on: :collection
   end
 

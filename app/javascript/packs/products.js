@@ -1,7 +1,5 @@
-$( document ).on('turbolinks:load', function() {
-    $( ".navbar a" ).click(function() {
-        alert( "Handler for .click() called." );
+$( document ).ready(function() {
+    $('#query').autocomplete({
+        source: $('#query').data('autocomplete-source')
     });
-})
-
-
+});

@@ -2,8 +2,14 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all.order('created_at DESC').page(params[:page])
-    # @category = Category.all.pluck(:id)
+
+    @products = Product.order(:name).where("name ilike ?", "%#{params[:term]}%").page(params[:page])
+    respond_to do |format|
+      format.html
+      format.json  { render :json => @products.map(&:name) }
+    end
   end
+
 
   def search
     if @category.present?

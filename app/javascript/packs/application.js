@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
+
 import './products.js'
 
 document.addEventListener("turbolinks:load", function() {
@@ -16,6 +17,8 @@ document.addEventListener("turbolinks:load", function() {
         $('[data-toggle="popover"]').popover()
     })
 })
+
+import "jquery-ui/ui/widgets/autocomplete"
 
 
 Rails.start()
