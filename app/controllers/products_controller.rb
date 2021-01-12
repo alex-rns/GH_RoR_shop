@@ -8,6 +8,13 @@ class ProductsController < ApplicationController
       format.html
       format.json  { render :json => @products.map(&:name) }
     end
+
+    if params[:sort] == 'cheapest'
+      @products = Product.order(price: :ASC).page(params[:page])
+    elsif params[:sort] == 'expensive'
+      @products = Product.order(price: :DESC).page(params[:page])
+    end
+
   end
 
 
