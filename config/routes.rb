@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products, only: [:search, :index] do
+  resources :products, only: [:search, :index, :show] do
     get "search", on: :collection
   end
 

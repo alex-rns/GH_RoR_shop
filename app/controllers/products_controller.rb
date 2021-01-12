@@ -14,7 +14,10 @@ class ProductsController < ApplicationController
     elsif params[:sort] == 'expensive'
       @products = Product.order(price: :DESC).page(params[:page])
     end
+  end
 
+  def show
+    @product = Product.find(params[:id])
   end
 
 
