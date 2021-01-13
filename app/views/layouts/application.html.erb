@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
 <head>
   <title>GHRorShop</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,9 +10,9 @@
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
 <%= render 'layouts/header' %>
-<div class="container">
+<div class="container mb-4">
   <div class="row">
     <%= render 'layouts/sidebar' %>
     <div class="col-9">
@@ -20,5 +20,6 @@
     </div>
   </div>
 </div>
+<%= render 'layouts/footer' %>
 </body>
 </html>

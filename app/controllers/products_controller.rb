@@ -1,14 +1,13 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all.order('created_at DESC').page(params[:page])
-
     @products = Product.order(:name).where("name ilike ?", "%#{params[:term]}%").page(params[:page])
     respond_to do |format|
       format.html
       format.json  { render :json => @products.map(&:name) }
     end
 
+    # SORTING
     if params[:category_id].present?
       if params[:sort] == 'cheapest'
         @products = Product.where(category_id: params[:category_id]).order(price: :ASC).page(params[:page])
