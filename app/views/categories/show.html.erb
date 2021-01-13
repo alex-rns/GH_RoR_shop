@@ -5,8 +5,8 @@
       sort
     </a>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <%= link_to 'Expensive first', products_path(sort: 'expensive'), class:'dropdown-item' %>
-      <%= link_to 'Cheapest first', products_path(sort: 'cheapest'), class:'dropdown-item' %>
+      <%= link_to 'Expensive first', category_products_path(sort: 'expensive', category_id: @category ), class:'dropdown-item' %>
+      <%= link_to 'Cheapest first', category_products_path(sort: 'cheapest', category_id: @category ), class:'dropdown-item' %>
     </div>
   </div>
   <%= render @products %>
