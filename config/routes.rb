@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "products#index", as: "home"
   get "/pages/:page" => "pages#show", as: 'page'
-  resources :categories do
+  resources :categories, only: :show  do
     resources :products do
       get "search", on: :collection
     end

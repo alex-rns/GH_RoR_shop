@@ -3,6 +3,15 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @products = Product.where(category_id: params[:id]).order('created_at DESC').page(params[:page])
+
+    #sorting product
+    if params[:sort] == 'cheapest'
+      @products = @category.products.order(price: :ASC).page(params[:page])
+    elsif params[:sort] == 'expensive'
+      @products = @category.products.order(price: :DESC).page(params[:page])
+    else
+      @products = @category.products.order(created_at: :ASC).page(params[:page])
+    end
+    render 'products/index'
   end
 end
