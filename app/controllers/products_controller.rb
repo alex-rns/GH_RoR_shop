@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
   def index
 
-    #searching product
+    #searching with autocomplete
     @products = Product.order(:name).where("name ilike ?", "%#{params[:term]}%").page(params[:page])
     respond_to do |format|
       format.html
@@ -14,6 +14,8 @@ class ProductsController < ApplicationController
       @products = Product.order(price: :ASC).page(params[:page])
     elsif params[:sort] == 'expensive'
       @products = Product.order(price: :DESC).page(params[:page])
+    elsif params[:min_price].present? || params[:max_price].present?
+      @products = Product.where(price: [params[:min_price]].first..[params[:max_price]].last).page(params[:page])
     else
       Product.all.order(created_at: :ASC)
     end
