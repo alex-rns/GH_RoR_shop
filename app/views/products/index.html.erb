@@ -22,7 +22,7 @@
         <%= form_with url: category_path, method: :get, class: "d-inline-flex w-auto" do |form| %>
           <%= form.number_field :min_price, value: @category.products.map(&:price).min, step: 0.01, class: 'price-form form-control', placeholder: 'Min' %>
           <%= form.number_field :max_price, value: @category.products.map(&:price).max, step: 0.01, class: 'price-form form-control', placeholder: 'Max' %>
-          <%= form.submit 'Find', class: 'btn btn-success' %>
+          <%= form.submit 'Find', class: 'btn btn-primary' %>
         <% end %>
       </div>
     <% elsif controller.controller_name == "products" %>
@@ -45,7 +45,7 @@
         <%= form_with url: products_path, method: :get, class: "d-md-inline-flex w-auto" do |form| %>
           <%= form.number_field :min_price, value: @products.map(&:price).min, step: 0.01, class: 'price-form form-control', placeholder: 'Min' %>
           <%= form.number_field :max_price, value: @products.map(&:price).max, step: 0.01, class: 'price-form form-control', placeholder: 'Max' %>
-          <%= form.submit 'Find', class: 'btn btn-success' %>
+          <%= form.submit 'Find', class: 'btn btn-primary' %>
         <% end %>
       </div>
     <% else %>

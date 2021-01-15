@@ -2,7 +2,7 @@
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .card {
-  .card-text, .card-title, .card-price {
+  .card-text, .card-title {
     min-height: 70px;
   }
   &:hover {
