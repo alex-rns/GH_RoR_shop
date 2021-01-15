@@ -17,14 +17,14 @@
         </div>
       </div>
 
-      <div class="d-inline-flex mx-3 align-items-start">
-        <p class="mx-3 mb-0 align-self-center">Sort by price:</p>
-        <%= form_with url: category_path, method: :get, class: "d-inline-flex w-auto" do |form| %>
-          <%= form.number_field :min_price, value: @category.products.map(&:price).min, step: 0.01, class: 'price-form form-control', placeholder: 'Min' if params[:min_price].present? %>
-          <%= form.number_field :max_price, value: @category.products.map(&:price).max, step: 0.01, class: 'price-form form-control', placeholder: 'Max' if params[:max_price].present? %>
-          <%= form.submit 'Find', class: 'btn btn-primary' %>
-        <% end %>
-      </div>
+<!--      <div class="d-inline-flex mx-3 align-items-start">-->
+<!--        <p class="mx-3 mb-0 align-self-center">Sort by price:</p>-->
+        <%#= form_with url: category_path, method: :get, class: "d-inline-flex w-auto" do |form| %>
+          <%#= form.number_field :min_price, value: @category.products.map(&:price).min, step: 0.01, class: 'price-form form-control', placeholder: 'Min' %>
+          <%#= form.number_field :max_price, value: @category.products.map(&:price).max, step: 0.01, class: 'price-form form-control', placeholder: 'Max' %>
+          <%#= form.submit 'Find', class: 'btn btn-primary' %>
+        <%# end %>
+<!--      </div>-->
     <% elsif controller.controller_name == "products" %>
       <div>
         <div class="dropdown">
@@ -40,14 +40,14 @@
         </div>
       </div>
 
-      <div class="d-inline-flex mx-3 align-items-start">
-        <p class="mx-3 mb-0 align-self-center">Sort by price:</p>
-        <%= form_with url: products_path, method: :get, class: "d-md-inline-flex w-auto" do |form| %>
-          <%= form.number_field :min_price, value: @products.map(&:price).min, step: 0.01, class: 'price-form form-control', placeholder: 'Min' if params[:min_price].present?%>
-          <%= form.number_field :max_price, value: @products.map(&:price).max, step: 0.01, class: 'price-form form-control', placeholder: 'Max' if params[:max_price].present? %>
-          <%= form.submit 'Find', class: 'btn btn-primary' %>
-        <% end %>
-      </div>
+<!--      <div class="d-inline-flex mx-3 align-items-start">-->
+<!--        <p class="mx-3 mb-0 align-self-center">Sort by price:</p>-->
+        <%#= form_with url: products_path, method: :get, class: "d-md-inline-flex w-auto" do |form| %>
+          <%#= form.number_field :min_price, value: @products.map(&:price).min, step: 0.01, class: 'price-form form-control', placeholder: 'Min' %>
+          <%#= form.number_field :max_price, value: @products.map(&:price).max, step: 0.01, class: 'price-form form-control', placeholder: 'Max' %>
+          <%#= form.submit 'Find', class: 'btn btn-primary' %>
+        <%# end %>
+<!--      </div>-->
     <% else %>
       <div></div>
     <% end %>
