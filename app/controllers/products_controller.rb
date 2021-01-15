@@ -1,26 +1,24 @@
 class ProductsController < ApplicationController
-
   def index
-
-    #searching with autocomplete
+    # searching with autocomplete
     @products = Product.order(:name).where("name ilike ?", "%#{params[:term]}%").page(params[:page])
     respond_to do |format|
       format.html
-      format.json { render :json => @products.map(&:name) }
+      format.json { render json: @products.map(&:name) }
     end
 
-    #sorting product
-    if params[:sort] == 'cheapest'
-      @products = Product.order(price: :ASC).page(params[:page])
-    elsif params[:sort] == 'expensive'
-      @products = Product.order(price: :DESC).page(params[:page])
-    elsif params[:sort] == 'alphabetically'
-      @products = Product.order(name: :ASC).page(params[:page])
-    elsif params[:min_price].present? || params[:max_price].present?
-      @products = Product.where(price: [params[:min_price]].first..[params[:max_price]].last).page(params[:page])
-    else
-      Product.all.order(created_at: :ASC)
-    end
+    # sorting product
+    @products = if params[:sort] == "cheapest"
+                  Product.order(price: :ASC).page(params[:page])
+                elsif params[:sort] == "expensive"
+                  Product.order(price: :DESC).page(params[:page])
+                elsif params[:sort] == "alphabetically"
+                  Product.order(name: :ASC).page(params[:page])
+                elsif params[:min_price].present? || params[:max_price].present?
+                  Product.where(price: [params[:min_price]].first..[params[:max_price]].last).page(params[:page])
+                else
+                  Product.all.order(created_at: :ASC).page(params[:page])
+                end
   end
 
   def show

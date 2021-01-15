@@ -1,8 +1,8 @@
 <div class="col-md-6 col-lg-4 col-xxl-3 col-12 align-items-center">
   <div class="card m-3 h-100 m-auto w-100" style="width: 18rem;">
-    <%=link_to(image_tag('https://picsum.photos/320/240', class: "card-img-top p-2"), product_path(product)) %>
+    <%= link_to(image_tag('https://picsum.photos/320/240', class: "card-img-top p-2"), product_path(product)) %>
     <div class="card-body">
-      <h5 class="card-title"><%= link_to product.name.truncate(25), product_path(product)%></h5>
+      <h5 class="card-title"><%= link_to product.name.truncate(25), product_path(product) %></h5>
       <p class="card-text"><%= product.description.truncate(50) %></p>
       <p class="card-price"><%= number_to_currency(product.price, unit: "UAH", separator: ",", delimiter: " ", format: "%n %u") %></p>
     </div>
