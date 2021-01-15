@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  WillPaginate.per_page = 4
+  WillPaginate.per_page = 8
 
   def show
     @category = Category.find(params[:id])
