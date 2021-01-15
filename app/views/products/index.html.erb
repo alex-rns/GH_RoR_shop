@@ -1,4 +1,58 @@
 <div class="row">
+<!--  <h2 class="mt-3">Filter:</h2>-->
+  <div class="sorting d-inline-flex align-items-start my-3">
+
+    <!--   with nested routes here I used controller_name instead current_page-->
+    <% if controller.controller_name == "categories" %>
+      <div>
+        <div class="dropdown">
+          <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+             data-toggle="dropdown" aria-expanded="false">
+            Order by
+          </a>
+          <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+            <%= link_to 'Expensive first', category_path(sort: 'expensive'), class: 'dropdown-item' %>
+            <%= link_to 'Cheapest first', category_path(sort: 'cheapest'), class: 'dropdown-item' %>
+            <%= link_to 'Аlphabetically', category_path(sort: 'alphabetically'), class: 'dropdown-item' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-inline-flex mx-3 align-items-start">
+        <p class="mx-3 mb-0 align-self-center">Sort by price:</p>
+        <%= form_with url: category_path, method: :get, class: "d-inline-flex w-auto" do |form| %>
+          <%= form.number_field :min_price, value: @category.products.map(&:price).min, class: 'price-form form-control', placeholder: 'Min'%>
+          <%= form.number_field :max_price, value: @category.products.map(&:price).max, class: 'price-form form-control', placeholder: 'Max'%>
+          <%= form.submit 'Find', class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    <% elsif controller.controller_name == "products" %>
+      <div>
+        <div class="dropdown">
+          <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+             data-toggle="dropdown" aria-expanded="false">
+            Order by
+          </a>
+          <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+            <%= link_to 'Expensive first', products_path(sort: 'expensive'), class: 'dropdown-item' %>
+            <%= link_to 'Cheapest first', products_path(sort: 'cheapest'), class: 'dropdown-item' %>
+            <%= link_to 'Аlphabetically', products_path(sort: 'alphabetically'), class: 'dropdown-item' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-inline-flex mx-3 align-items-start">
+        <p class="mx-3 mb-0 align-self-center">Sort by price:</p>
+        <%= form_with url: products_path, method: :get, class: "d-md-inline-flex w-auto" do |form| %>
+          <%= form.number_field :min_price, value: @products.map(&:price).min, class: 'price-form form-control', placeholder: 'Min'%>
+          <%= form.number_field :max_price, value: @products.map(&:price).max, class: 'price-form form-control', placeholder: 'Max'%>
+          <%= form.submit 'Find', class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    <% else %>
+      <div></div>
+    <% end %>
+  </div>
   <%= render @products %>
   <%= will_paginate @products, class: "pagination" %>
 </div>
