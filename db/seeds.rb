@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-10.times do
+5.times do
   Category.create!(
     name: Faker::Music.unique.genre
   )
@@ -51,7 +51,7 @@ end
   )
 end
 
-10.times do
+7.times do
   Product.create!(
     name: Faker::Music.unique.band,
     description: Faker::Lorem.sentence(word_count: 100),
