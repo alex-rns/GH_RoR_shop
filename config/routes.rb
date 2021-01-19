@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'order/show'
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -9,10 +10,12 @@ Rails.application.routes.draw do
       get "search", on: :collection
     end
   end
-
   resources :products, only: [:search, :index, :show] do
     get "search", on: :collection
   end
-
+  resources :products do
+    resources :order_items, only: [:create, :update, :destroy]
+  end
+  resources :order, only: :show
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
