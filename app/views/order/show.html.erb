@@ -2,4 +2,6 @@
   <p>Name: <%= item.product.name %></p>
   <p>Description: <%= item.product.description %></p>
   <p>Price: <%= item.product.price %></p>
+  <p>Quantity: <%= item.quantity %></p>
+  <%= link_to "+1",product_order_item_path(item.product, item), method: :patch, class: "btn btn-success" %>
 <% end %>
