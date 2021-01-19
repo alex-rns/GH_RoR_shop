@@ -2,7 +2,13 @@
   <p>Name: <%= item.product.name %></p>
   <p>Description: <%= item.product.description %></p>
   <p>Price: <%= item.product.price %></p>
-  <p>Quantity: <%= item.quantity %></p>
-  <%= link_to "+1",product_order_item_path(item.product, item), method: :patch, class: "btn btn-success" %>
+
+  <div class="d-flex my-3">
+    <p>Quantity:</p>
+    <%= link_to "-",decrease_quantity_order_item_path(item), class: "btn btn-success" %>
+    <strong class="p-2"><%= item.quantity %></strong>
+    <%= link_to "+",increase_quantity_order_item_path(item), class: "btn btn-success" %>
+  </div>
+
   <%= link_to "Delete product",product_order_item_path(item.product, item), method: :delete, class: "btn btn-success" %>
 <% end %>

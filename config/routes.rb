@@ -13,9 +13,20 @@ Rails.application.routes.draw do
   resources :products, only: [:search, :index, :show] do
     get "search", on: :collection
   end
+
   resources :products do
     resources :order_items, only: [:create, :update, :destroy]
   end
-  resources :order, only: :show
+
+  resources :order, only: :show do
+  end
+
+  resources :order_items do
+    member do
+      get 'increase_quantity'
+      get 'decrease_quantity'
+    end
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
