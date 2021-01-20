@@ -1,0 +1,5 @@
+<div class="container total-price px-4">
+  <h4>Total order
+    price: <%= number_to_currency(current_order.order_items.map { |a| a.total_items_price }.sum, unit: "UAH", separator: ",", delimiter: " ", format: "%n %u") %></h4>
+  <%= link_to "Confirm order", page_path(page: 'confirm_cart'), class: "btn btn-outline-success btn-lg" %>
+</div>

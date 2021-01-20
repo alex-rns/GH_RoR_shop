@@ -13,17 +13,23 @@ class OrderItemsController < ApplicationController
   end
 
   def increase_quantity
-    @order_item.update(quantity: @order_item.quantity + 1)
-    redirect_to order_path(current_order)
+    if @order_item.update(quantity: @order_item.quantity + 1)
+      render 'order_items/increase_quantity'
+    else
+      redirect_to order_path(current_order)
+    end
   end
 
   def decrease_quantity
     if @order_item.quantity > 0
-      @order_item.update(quantity: @order_item.quantity - 1)
+      if @order_item.update(quantity: @order_item.quantity - 1)
+        render 'order_items/increase_quantity'
+      else
+        redirect_to order_path(current_order)
+      end
     else
       @order_item.quantity = 0
     end
-    redirect_to order_path(current_order)
   end
 
   def destroy
