@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-
+    @categories = @category.subcategories
     # sorting product
     @products = if params[:sort] == "cheapest"
                   @category.products.order(price: :ASC).page(params[:page])

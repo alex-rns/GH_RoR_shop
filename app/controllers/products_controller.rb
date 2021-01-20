@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
                 else
                   Product.all.order(created_at: :ASC).page(params[:page])
                 end
+    @categories = Category.where(parent_id: nil)
   end
 
   def show

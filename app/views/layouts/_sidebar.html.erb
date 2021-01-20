@@ -3,10 +3,17 @@
     <h3>Category:</h3>
     <ul class="nav flex-column">
       <li class="nav-item text-danger">
-        <% Category.all.each do |category| %>
-          <%= link_to_unless_current category.name.upcase, category_path(category), class: "nav-link p-0" %>
-        <% end %>
+
+          <% Category.where(parent_id: nil).each do |category| %>
+            <%= link_to_unless_current category.name.upcase, category_path(category), class: "nav-link p-0" %>
+
+            <% category.subcategories.each do |subcategory| %>
+              <%= link_to_unless_current subcategory.name.upcase, subcategory, class:"nav-link p-0 ml-4" %>
+            <% end %>
+
+          <% end %>
       </li>
     </ul>
   </div>
 </nav>
+
