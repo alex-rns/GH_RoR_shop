@@ -1,3 +1,11 @@
-<h1><%= @product.name %> </h1>
-<%= image_tag @product.image if @product.image? %>
-<p><%= @product.description %></p>
+<div class="container m-3">
+  <h2><%= @product.name %> </h2>
+  <div class="d-flex">
+    <div>
+      <%= image_tag @product.image if @product.image.present? %>
+    </div>
+    <p class="pl-3">Description: <%= @product.description %></p>
+  </div>
+  <h3>Price: <%= number_to_currency(@product.price, unit: "UAH", separator: ",", delimiter: " ", format: "%n %u") %></h3>
+  <%= link_to "Add to cart", product_order_items_path(@product), method: :post, class: "btn btn-small btn-primary" %>
+</div>

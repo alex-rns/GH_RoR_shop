@@ -1,6 +1,7 @@
 <h2 class="text-center mt-5">Cart</h2>
 <% if @items.empty? %>
   <h4>Cart is empty</h4>
+  <%= image_tag "https://st.depositphotos.com/1494134/4046/v/950/depositphotos_40465593-stock-illustration-empty-shopping-basket-isolated-on.jpg" %>
 <% else %>
   <div id="cart">
     <% @items.each do |item| %>
