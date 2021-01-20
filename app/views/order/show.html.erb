@@ -1,32 +1,38 @@
 <h2 class="text-center mt-5">Cart</h2>
-<% @items.each do |item| %>
-  <div class="container order-item py-4 px-3 m-4">
-    <p class="text-center fs-4"><%= link_to item.product.name, product_path(item) %></p>
+<% if @items.empty? %>
+  <h4>Cart is empty</h4>
+<% else %>
+  <% @items.each do |item| %>
+    <div class="container order-item py-4 px-3 m-4">
+      <p class="text-center fs-4"><%= link_to item.product.name, product_path(item.product_id) %></p>
 
-    <div class="d-flex">
-      <div>
-        <%= image_tag item.product.image if item.product.image.present? %>
+      <div class="d-flex">
+        <div>
+          <%= image_tag item.product.image if item.product.image.present? %>
+        </div>
+        <p class="pl-3">Description: <%= item.product.description %></p>
       </div>
-      <p class="pl-3">Description: <%= item.product.description %></p>
+      <div class="d-flex align-items-center py-3">
+        <strong class="px-2">Price: <%= number_to_currency(item.product.price, unit: "UAH", separator: ",", delimiter: " ", format: "%n %u") %></strong>
+        <div class="d-flex align-items-center">
+          <strong class="px-2">Quantity:</strong>
+          <div class="btn-group">
+          <%= link_to "-", decrease_quantity_order_item_path(item), class: "btn btn-success d-flex align-items-center btn-sm #{"disabled" if item.quantity == 1}" %>
+          <strong class="p-2 bg-success text-white"><%= item.quantity %></strong>
+          <%= link_to "+", increase_quantity_order_item_path(item), class: "btn btn-success d-flex align-items-center btn-sm" %>
+          </div>
+        </div>
+      </div>
+      <p class="px-2 fw-bold">Price with
+        quantity: <%= number_to_currency(item.total_items_price, unit: "UAH", separator: ",", delimiter: " ", format: "%n %u") %></p>
+      <%= link_to "Delete product from cart", product_order_item_path(item.product, item), method: :delete, class: "btn btn-danger" %>
     </div>
+  <% end %>
 
-    <p>Price: <%= item.product.price %></p>
-    <%= item.total_items_price %>
-    <div class="d-flex my-3">
-      <p>Quantity:</p>
-      <%= link_to "-", decrease_quantity_order_item_path(item), class: "btn btn-success #{"disabled" if item.quantity == 1}" %>
-      <strong class="p-2"><%= item.quantity %></strong>
-      <%= link_to "+", increase_quantity_order_item_path(item), class: "btn btn-success" %>
-    </div>
-    <%= link_to "Delete product", product_order_item_path(item.product, item), method: :delete, class: "btn btn-success" %>
+
+  <div class="container px-4">
+    <h4>Total order price: <%= number_to_currency(@items.map { |a| a.total_items_price }.sum, unit: "UAH", separator: ",", delimiter: " ", format: "%n %u") %></h4>
+    <%= link_to "Confirm order", page_path(page: 'confirm_cart'), class: "btn btn-outline-success btn-lg" %>
   </div>
+
 <% end %>
-
-
-
-
-<div>
-  <h4>Total price:</h4>
-  <%= @items.map { |a| a.total_items_price }.sum %>
-</div>
-
