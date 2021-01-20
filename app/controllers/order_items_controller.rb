@@ -27,8 +27,11 @@ class OrderItemsController < ApplicationController
   end
 
   def destroy
-    @order_item.destroy
-    redirect_to order_path(current_order)
+    if @order_item.destroy
+      render 'destroy'
+    else
+      redirect_to order_path(current_order)
+    end
   end
 
   private

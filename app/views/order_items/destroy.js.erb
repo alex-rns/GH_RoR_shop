@@ -1,0 +1,4 @@
+$('.order-item-<%= @order_item.id %>').hide(400)
+if ($('#cart').children().length > 0) {
+    $('.total-price').replaceWith("<h4>Cart is empty</h4>");
+}
