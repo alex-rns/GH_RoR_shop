@@ -11,6 +11,25 @@
   )
 end
 
+Category.create!(
+  name: Faker::Music.unique.genre,
+  parent_id: 1
+)
+
+2.times do
+  Category.create!(
+    name: Faker::Music.unique.genre,
+    parent_id: 3
+  )
+end
+
+3.times do
+  Category.create!(
+    name: Faker::Music.unique.genre,
+    parent_id: 4
+  )
+end
+
 7.times do
   Product.create!(
     name: Faker::Music.unique.band,
@@ -58,6 +77,36 @@ end
     price: Faker::Number.decimal(l_digits: 3),
     image: Faker::Placeholdit.image,
     category_id: 5
+  )
+end
+
+8.times do
+  Product.create!(
+    name: Faker::Music.unique.band,
+    description: Faker::Lorem.sentence(word_count: 100),
+    price: Faker::Number.decimal(l_digits: 3),
+    image: Faker::Placeholdit.image,
+    category_id: 6
+  )
+end
+
+7.times do
+  Product.create!(
+    name: Faker::Music.unique.band,
+    description: Faker::Lorem.sentence(word_count: 100),
+    price: Faker::Number.decimal(l_digits: 3),
+    image: Faker::Placeholdit.image,
+    category_id: 7
+  )
+end
+
+2.times do
+  Product.create!(
+    name: Faker::Music.unique.band,
+    description: Faker::Lorem.sentence(word_count: 100),
+    price: Faker::Number.decimal(l_digits: 3),
+    image: Faker::Placeholdit.image,
+    category_id: 8
   )
 end
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
