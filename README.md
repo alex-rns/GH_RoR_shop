@@ -1,24 +1,53 @@
-# README
+# **GeekHub X | RoR | Homework 11**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![site_screen](https://user-images.githubusercontent.com/23439223/105531359-dbd56080-5cf1-11eb-9779-1cae320867f3.jpg)
 
-Things you may want to cover:
+## Description
+This project was created to practice ruby.
 
-* Ruby version
+## Assigned task
 
-* System dependencies
+Сейчас мы приступаем к написанию своего собственного магазина и пусть розетка трепещет т.к. скоро появятся у неё конкуренты!
 
-* Configuration
+## Steps
 
-* Database creation
+Итак что нужно сделать!
+- Создать новый проект в новом репозитории
+- Создать модели:
+- Product
+- Category
+- User
+- Прикрутить bootstrap к проекту и все вьюхи оформлять по сетке бутстрапа
+- Страницу с товаром разбить на сетку, смотрите как это сделано на реальных интернет магазинах
+- Сделайте хедер(панель навигации) на сайте со статическими страницами также поиском
+- Сделать поиск через автокомплит
+- При клике на категорию для получение определенных товаров - выделить категорию
+- Создать сортировки товаров на странице (от большей цены до меньшей и наоборот, по алфавиту)
+- Сделать фильтрация товара по цене(нужно ввести максимальну и минимальную другими словами диапазон цены). Также смотрите примеры в реальной жизни например на розетке
+- Добавить ЧПУ можно пока гемы не использовать а заюзать to_param(https://apidock.com/rails/ActiveRecord/Base/to_param)
+- Добавить пагинацию
 
-* Database initialization
 
-* How to run the test suite
+# **GeekHub X | RoR | Homework 12**
 
-* Services (job queues, cache servers, search engines, etc.)
+![site_screen](https://user-images.githubusercontent.com/23439223/105531609-4090bb00-5cf2-11eb-82db-229cf7894cd4.jpg)
 
-* Deployment instructions
+## Assigned task
 
-* ...
+Продолжаем модифицировать наш магазин:
+
+## Steps
+
+1. Установить и настроить гем Devise для сущности User
+2. Установить и настроить гем Activeadmin,
+3. Добавить подкатегории для категория товаров. Создать несколько подкатегорий для каждой категории.
+4. Добавить сущность  Cart, реализовать возможностью добавления продукта в корзину. Важно, чтобы каждый товар в корзине был уникальным. Если в корзине уже есть товар, а мы пробуем ещё раз добавить его, то должно просто измениться количетсво айтемов в корзине. Также в корзине должен быть функционал увеличение/уменьшение количества айтемов
+5. Создать сущность Order, реализовать возможность оформления заказа.
+6. Загружаем наши файлы на S3
+
+## Literature
+
+https://github.com/heartcombo/devise
+https://github.com/activeadmin/activeadmin
+https://edgeguides.rubyonrails.org/active_storage_overview.html#s3-service-amazon-s3-and-s3-compatible-apis
+https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/setup-config.html инструкция как получить креды для S3
