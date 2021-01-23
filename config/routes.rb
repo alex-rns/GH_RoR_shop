@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
-  get 'order/show'
+  root "products#index", as: "home"
+
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root "products#index", as: "home"
+
+  get 'order/show'
+  get 'order/complete'
   get "/pages/:page" => "pages#show", as: 'page'
   resources :categories, only: :show  do
     resources :products do
       get "search", on: :collection
     end
   end
+
   resources :products, only: [:search, :index, :show] do
     get "search", on: :collection
   end

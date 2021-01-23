@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Hi, <%= @user.email %></h1>
+
+<h3>You order:</h3>
+<% @order.order_items.each do |item| %>
+      <p><%= item.product.name %></p>
+      <p><%= item.product.image %></p>
+      <p><%= item.product.price %></p>
+<% end %>
+
+
+<p>Thanks for joining and have a great day!</p>
+</body>
+</html>
