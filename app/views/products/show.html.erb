@@ -10,7 +10,7 @@
   <h3>Price: <%= number_to_currency(@product.price, unit: "UAH", separator: ",", delimiter: " ", format: "%n %u") %></h3>
   <% if user_signed_in? %>
     <%= link_to "Add to cart", product_order_items_path(@product), method: :post, class: "btn btn-small btn-primary" %>
-    <%= link_to "Add comment", new_comment_path(user_id: current_user, product_id: @product), method: :get, class: "btn btn-small btn-primary" %>
+    <%= link_to "Add comment", new_comment_path(product_id: @product), method: :get, class: "btn btn-small btn-primary" %>
   <% end %>
 
   <h3>Comments:</h3>
