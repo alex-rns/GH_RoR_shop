@@ -12,6 +12,7 @@
 #  category_id :bigint
 #
 class Product < ApplicationRecord
+  has_many :comments
   belongs_to :category
   validates :name, :description, :price, presence: true
 

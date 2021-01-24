@@ -7,6 +7,7 @@
 #  image      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  parent_id  :bigint
 #
 class Category < ApplicationRecord
   has_many :products

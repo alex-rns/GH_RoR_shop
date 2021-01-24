@@ -1,16 +1,18 @@
 # == Schema Information
 #
-# Table name: orders
+# Table name: comments
 #
 #  id         :bigint           not null, primary key
-#  user_id    :bigint           not null
-#  status     :integer          default("in_progress")
+#  user_id    :bigint
+#  product_id :bigint
+#  body       :text
+#  rating     :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 require "test_helper"
 
-class OrderTest < ActiveSupport::TestCase
+class CommentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
