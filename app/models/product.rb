@@ -19,4 +19,8 @@ class Product < ApplicationRecord
   def to_param
     "#{id} - #{name}".parameterize
   end
+
+  def rating
+    comments.sum(&:rating).to_f / comments.count
+  end
 end
