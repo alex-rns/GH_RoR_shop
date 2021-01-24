@@ -46,7 +46,7 @@
         <li class="p-2 d-grid">
           <%= link_to "Show cart", order_path(current_order), class: "btn btn-success" %>
           <p class="text-white m-auto"> Products in cart:
-            <%= current_order ? current_order.order_items.size : 0 %>
+            <%= current_order && current_order.status == "in_progress" ? current_order.order_items.size : 0 %>
           </p>
         </li>
         <li class="p-2 d-grid">
