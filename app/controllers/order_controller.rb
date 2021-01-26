@@ -1,5 +1,5 @@
 class OrderController < ApplicationController
-  before_action :authenticate_user!, raise: false
+  # before_action :authenticate_user!, raise: false
   def show
     @items = current_order.order_items.order("id DESC")
   end
