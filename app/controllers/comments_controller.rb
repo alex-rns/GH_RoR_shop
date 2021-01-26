@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+
+  before_action :set_comment, only: [:edit, :update, :destroy]
+
   def new
     @comment = Comment.new(user: current_user, product_id: params[:product_id])
   end
@@ -17,9 +20,20 @@ class CommentsController < ApplicationController
   end
 
   def update
+    @comment.update(comment_params)
+    redirect_to @comment.product
+  end
+
+  def destroy
+    @comment.destroy
+    redirect_to @comment.product
   end
 
   private
+
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
 
   def comment_params
     params.require(:comment).permit(:user_id, :product_id, :body, :rating)
