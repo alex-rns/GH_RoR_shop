@@ -21,7 +21,10 @@
   <div>
     <div class="d-flex justify-content-between">
       <h3 class="text-center">Comments:</h3>
-      <%= link_to "Add comment", new_comment_path(product_id: @product), method: :get, class: "btn btn-primary my-2" if user_purchased_product?(@product) || user_signed_in? %>
+      <% if user_signed_in? %>
+
+        <%= link_to "Add comment", new_comment_path(product_id: @product), method: :get, class: "btn btn-primary my-2" if user_purchased_product?(@product) %>
+      <% end %>
     </div>
 
     <div class="m-2 d-flex-column">
