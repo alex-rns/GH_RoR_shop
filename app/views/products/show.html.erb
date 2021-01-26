@@ -1,25 +1,45 @@
 <div class="container m-3">
-  <h2><%= @product.name %> </h2>
-  <div>Rating: <%= @product.rating %></div>
-  <div class="d-flex">
-    <div>
-      <%= image_tag @product.image if @product.image.present? %>
-    </div>
-    <p class="pl-3">Description: <%= @product.description %></p>
+  <div class="d-flex justify-content-around align-items-center py-4">
+    <h2 class="text-center"><%= @product.name %></h2>
+    <h5>⭐<%= @product.rating %></h5>
   </div>
-  <h3>Price: <%= number_to_currency(@product.price, unit: "UAH", separator: ",", delimiter: " ", format: "%n %u") %></h3>
-  <% if user_signed_in? %>
-    <%= link_to "Add to cart", product_order_items_path(@product), method: :post, class: "btn btn-small btn-primary" %>
-    <%= link_to "Add comment", new_comment_path(product_id: @product), method: :get, class: "btn btn-small btn-primary" if user_purchased_product?(@product) %>
-  <% end %>
-  <h3>Comments:</h3>
-  <% @product.comments.each do |comment| %>
-    <%= comment.user.email %>:
-    <%= comment.body %>
-    <br>
-    <% if current_user == comment.user %>
-      <%= link_to 'Edit', edit_comment_path(comment), class: "btn btn-secondary" %>
-      <%= link_to 'Delete', comment_path(comment), method: :delete, class: "btn btn-secondary" %>
-    <% end %>
-  <% end %>
+
+  <div class="d-flex">
+    <div class="col-6">
+      <%= image_tag @product.image, class: "img-fluid w-100" if @product.image.present? %>
+    </div>
+    <div class="col-6">
+      <p class="pl-3">Description: <%= @product.description %></p>
+    </div>
+  </div>
+
+  <div class="py-5">
+    <h3>Price: <%= number_to_currency(@product.price, unit: "UAH", separator: ",", delimiter: " ", format: "%n %u") %></h3>
+    <%= link_to "Add to cart", product_order_items_path(@product), method: :post, class: "btn btn-lg btn-outline-success my-2" if user_signed_in? %>
+  </div>
+
+  <div>
+    <div class="d-flex justify-content-between">
+      <h3 class="text-center">Comments:</h3>
+      <%= link_to "Add comment", new_comment_path(product_id: @product), method: :get, class: "btn btn-primary my-2" if user_purchased_product?(@product) || user_signed_in? %>
+    </div>
+
+    <div class="m-2 d-flex-column">
+      <% @product.comments.each do |comment| %>
+        <div class="col- pt-4 bg-white position-relative mb-3">
+          <strong class="position-absolute fixed-top p-2"><%= comment.user.email %></strong>
+          <p class="p-3 m-0"><%= comment.body %></p>
+          <div class="text-right p-1 btn-group-sm">
+            <% if current_user == comment.user %>
+              <%= link_to 'Edit', edit_comment_path(comment), class: "btn btn-secondary" %>
+              <%= link_to 'Delete', comment_path(comment), method: :delete, class: "btn btn-danger" %>
+            <% end %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+
+  </div>
+
 </div>
