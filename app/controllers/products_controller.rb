@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
   def show
     @products = Product.all
     @product = Product.find(params[:id])
+    @product.image = "product-placeholder.jpg" if @product.image.empty?
   end
 
   def search
