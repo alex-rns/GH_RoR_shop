@@ -1,6 +1,6 @@
 class OrderItemsController < ApplicationController
   before_action :set_order_item, only: [:destroy, :increase_quantity, :decrease_quantity]
-  # before_action :authenticate_user!, raise: false
+  before_action :authenticate_user!
   def create
     order_item = current_order.order_items.find_by(product_id: params[:product_id])
     if order_item.present?
