@@ -31,8 +31,10 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'ancestry'
 gem 'activeadmin'
 # Plus integrations with:
-gem 'devise'
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem 'aws-sdk-s3'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem 'omniauth-rails_csrf_protection'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
