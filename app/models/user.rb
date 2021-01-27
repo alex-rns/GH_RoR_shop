@@ -10,12 +10,15 @@
 #  remember_created_at    :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  provider               :string
+#  uid                    :string
+#  name                   :string
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
+    :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
 
   has_many :order_items
   has_many :orders

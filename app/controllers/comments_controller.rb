@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
       redirect_to product_path(@comment.product)
     else
       flash.now[:error] = @comment.errors.messages
-      render 'new'
+      render "new"
     end
   end
 
@@ -38,5 +38,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:user_id, :product_id, :body, :rating)
   end
-
 end

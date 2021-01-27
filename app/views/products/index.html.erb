@@ -1,6 +1,5 @@
 <div class="row g-0">
   <div class="sorting d-inline-flex align-items-start my-3">
-
     <!--   with nested routes here I used controller_name instead current_page-->
     <% if controller.controller_name == "categories" %>
       <div>
@@ -12,7 +11,7 @@
           <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
             <%= link_to 'Expensive first', category_path(sort: 'expensive'), class: 'dropdown-item' %>
             <%= link_to 'Cheapest first', category_path(sort: 'cheapest'), class: 'dropdown-item' %>
-            <%= link_to 'Аlphabetically', category_path(sort: 'alphabetically'), class: 'dropdown-item' %>
+            <%= link_to 'Alphabetically', category_path(sort: 'alphabetically'), class: 'dropdown-item' %>
           </div>
         </div>
       </div>
@@ -35,7 +34,7 @@
           <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
             <%= link_to 'Expensive first', products_path(sort: 'expensive'), class: 'dropdown-item' %>
             <%= link_to 'Cheapest first', products_path(sort: 'cheapest'), class: 'dropdown-item' %>
-            <%= link_to 'Аlphabetically', products_path(sort: 'alphabetically'), class: 'dropdown-item' %>
+            <%= link_to 'Alphabetically', products_path(sort: 'alphabetically'), class: 'dropdown-item' %>
           </div>
         </div>
       </div>

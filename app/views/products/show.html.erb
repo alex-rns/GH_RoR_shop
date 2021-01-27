@@ -1,7 +1,7 @@
 <div class="container m-3">
   <div class="d-flex justify-content-around align-items-center py-4">
     <h2 class="text-center"><%= @product.name %></h2>
-    <h5>⭐<%= @product.rating %></h5>
+    <h5>⭐<%= @product.rating.round(2) %></h5>
   </div>
 
   <div class="d-flex">
@@ -45,6 +45,5 @@
     <% else %>
       <p>No comment yet</p>
     <% end %>
-
   </div>
 </div>

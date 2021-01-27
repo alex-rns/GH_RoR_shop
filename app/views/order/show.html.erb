@@ -1,5 +1,4 @@
 <h2 class="text-center mt-5">Cart</h2>
-
 <% if current_order.status == "ordered" || @items.empty? %>
   <div class="text-center">
     <%= image_tag "https://cdn.onlinewebfonts.com/svg/img_456359.png", class: "img-fluid w-50" %>
@@ -13,6 +12,6 @@
   </div>
   <div class="confirm">
     <%= render 'total_order_price' %>
-    <%= link_to "Confirm order", order_complete_path, class: "btn btn-outline-success btn-lg ml-4" if @items.present?%>
+    <%= link_to "Confirm order", order_complete_path, class: "btn btn-outline-success btn-lg ml-4" if @items.present? %>
   </div>
 <% end %>
