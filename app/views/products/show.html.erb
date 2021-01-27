@@ -22,26 +22,29 @@
     <div class="d-flex justify-content-between">
       <h3 class="text-center">Comments:</h3>
       <% if user_signed_in? %>
-
         <%= link_to "Add comment", new_comment_path(product_id: @product), method: :get, class: "btn btn-primary my-2" if user_purchased_product?(@product) %>
       <% end %>
     </div>
 
-    <div class="m-2 d-flex-column">
-      <% @product.comments.each do |comment| %>
-        <div class="col- pt-4 bg-white position-relative mb-3">
-          <strong class="position-absolute fixed-top p-2"><%= comment.user.email %></strong>
-          <p class="p-3 m-0"><%= comment.body %></p>
-          <div class="text-right p-1 btn-group-sm">
-            <% if current_user == comment.user %>
-              <%= link_to 'Edit', edit_comment_path(comment), class: "btn btn-secondary" %>
-              <%= link_to 'Delete', comment_path(comment), method: :delete, class: "btn btn-danger" %>
-            <% end %>
+    <% if @product.comments.present? %>
+      <div class="m-2 d-flex-column">
+        <% @product.comments.each do |comment| %>
+          <div class="col- pt-4 bg-white position-relative mb-3">
+            <strong class="position-absolute fixed-top p-2"><%= comment.user.email %></strong>
+            <strong class="position-absolute fixed-top text-right p-2"><%= render_stars(comment.rating) %></strong>
+            <p class="p-3 m-0"><%= comment.body %></p>
+            <div class="text-right p-1 btn-group-sm">
+              <% if current_user == comment.user %>
+                <%= link_to 'Edit', edit_comment_path(comment), class: "btn btn-secondary" %>
+                <%= link_to 'Delete', comment_path(comment), method: :delete, class: "btn btn-danger" %>
+              <% end %>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>No comment yet</p>
+    <% end %>
 
   </div>
-
 </div>
