@@ -1,4 +1,4 @@
 <div class="container total-price px-4">
   <h4>Total order
-    price: <%= number_to_currency(current_order.order_items.map { |a| a.total_items_price }.sum, unit: "UAH", separator: ",", delimiter: " ", format: "%n %u") %></h4>
+    price: <%= number_to_currency(current_order.order_items.map { |a| a.total_items_price }.sum, separator: ",", delimiter: " ") %></h4>
 </div>
