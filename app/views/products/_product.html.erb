@@ -2,11 +2,11 @@
   <div class="card m-3 h-100 m-auto w-100" style="width: 18rem;">
     <%= link_to(image_tag(product.image.empty? ? "product-placeholder.jpg" : product.image, class: "card-img-top p-2"), product_path(product)) %>
     <div class="card-body">
-      <h5 class="card-title"><%= link_to product.name.truncate(35), product_path(product) %></h5>
-      <p class="card-text"><%= product.description.truncate(50) %></p>
+      <h5 class="card-title fw-light"><%= link_to product.name.truncate(40), product_path(product) %></h5>
+      <p class="card-text lh-sm"><%= product.description.truncate(130) %></p>
     </div>
     <div class="card-footer d-flex justify-content-between align-items-center px-3">
-      <small class="card-price m-0 pr-1"><%= number_to_currency(product.price, separator: ",", delimiter: " ") %></small>
+      <small class="card-price m-0 pr-1 fw-bolder"><%= number_to_currency(product.price, separator: ",", delimiter: " ") %></small>
       <%= link_to "Add to cart", product_order_items_path(product), method: :post, class: "btn btn-small btn-primary" if user_signed_in? %>
     </div>
   </div>

@@ -2,8 +2,13 @@
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .card {
-  .card-text, .card-title {
+  .card-title {
+    min-height: 45px;
+    font-size: 1.1em;
+  }
+  .card-text {
     min-height: 70px;
+    font-size: 0.8em;
   }
   &:hover {
     box-shadow: 4px 8px 8px 4px rgba(34, 60, 80, 0.2);

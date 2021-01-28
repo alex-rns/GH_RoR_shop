@@ -6,7 +6,7 @@
           <% Category.where(parent_id: nil).each do |category| %>
             <%= link_to_unless_current category.name.upcase, category_path(category), class: "nav-link p-0" %>
             <% category.subcategories.each do |subcategory| %>
-              <%= link_to_unless_current subcategory.name.upcase, subcategory, class:"nav-link p-0 ml-4" %>
+              <%= link_to_unless_current subcategory.name.upcase, subcategory, class:"nav-link p-0 ml-4 fw-lighter lh-sm" %>
             <% end %>
           <% end %>
       </li>
