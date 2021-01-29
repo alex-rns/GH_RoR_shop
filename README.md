@@ -51,3 +51,32 @@ https://github.com/heartcombo/devise
 https://github.com/activeadmin/activeadmin
 https://edgeguides.rubyonrails.org/active_storage_overview.html#s3-service-amazon-s3-and-s3-compatible-apis
 https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/setup-config.html инструкция как получить креды для S3
+
+# **GeekHub X | RoR | Homework 13**
+
+![site_screen](https://user-images.githubusercontent.com/23439223/106315695-4fd4b300-6274-11eb-9b45-b3bf1dea0fa0.jpg)
+
+## Assigned task
+
+И так осталось ещё пару шагов и наш магазин будет готов, и так что нам нужно сделать::
+
+## Steps
+
+1. Модключить мейлер используя Gmail
+2. Должны отправляться имейлы после оформления заказа, с перечнем товаром (поработайте на вьюхой имейла, чтобы она была красивая и информативная). После того как мы отправляем имейл мы должны: переводить наш заказ в статус "выполнен" (тем самым мы деактивируем корзину) а так же переадресовываем пользователя на главную страницу (не забываем об сообщении об успешно выполненном заказе на вьюхе)
+3. Добавить сущность комментарии для продуктов и пользователей, с полями body & rating.
+4. Пользователь может оставить только 1 коментарий с рейтингом для товара заказ на который он оформил (заказ должен находиться в статусе "выполнены"). Используйте валидацию со скоупом.
+5. Пользователь может создавать, редактировать и удалять свой комментарий.
+6. На странице продукта, мы должны отображать: название товара, описание, цену, категорию, картинку и общий рейтинг товара (среднее арифметическое всех оценок пользователей для этого товара)
+7. Добавить возможность авторизации с помощью гема omniauth, используя github как провайдер.
+8. Вытягивать из данных приходящих от провайдера имя пользователя (и записывать эти данные в базу).
+*. По-желанию добавить доп провайдеры для авторизации facebook/google.
+
+## Literature
+
+https://guides.rubyonrails.org/action_mailer_basics.html
+https://github.com/omniauth/omniauth
+https://github.com/omniauth/omniauth-github
+https://github.com/heartcombo/devise
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2' - devise version with omniauth
+https://github.com/cookpad/omniauth-rails_csrf_protection
