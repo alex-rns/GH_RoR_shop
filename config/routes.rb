@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  get 'order/show'
-  get 'order/complete'
   get "/pages/:page" => "pages#show", as: 'page'
   resources :categories, only: :show  do
     resources :products do
@@ -22,7 +20,8 @@ Rails.application.routes.draw do
     resources :order_items, only: [:create, :update, :destroy]
   end
 
-  resources :order, only: :show do
+  get 'orders/complete'
+  resources :orders, only: :show do
   end
 
   resources :order_items do

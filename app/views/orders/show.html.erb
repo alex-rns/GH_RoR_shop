@@ -12,6 +12,6 @@
   </div>
   <div class="confirm">
     <%= render 'total_order_price' %>
-    <%= link_to "Confirm order", order_complete_path, class: "btn btn-outline-success btn-lg ml-4" if @items.present? %>
+    <%= link_to "Confirm orders", orders_complete_path, class: "btn btn-outline-success btn-lg ml-4" if @items.present? %>
   </div>
 <% end %>

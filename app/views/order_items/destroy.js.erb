@@ -2,4 +2,4 @@ $('.order-item-<%= @order_item.id %>').hide(400)
 if ($('.order-item').is(":hidden")) {
     $('.confirm').replaceWith("<h4>Cart is empty</h4>");
 }
-$('.total-price').replaceWith('<%= j render partial:'order/total_order_price' %>');
+$('.total-price').replaceWith('<%= j render partial:'orders/total_order_price' %>');
