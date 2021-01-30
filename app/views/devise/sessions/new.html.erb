@@ -1,6 +1,9 @@
 <div class="container text-center">
   <h2 class="text-center py-5">Log in</h2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= content_tag(:div, flash[:error], :id => "flash_error", class: "alert alert-error") if flash[:error] %>
+    <%= content_tag(:div, flash[:notice], :id => "flash_notice", class: "alert alert-notice") if flash[:notice] %>
+    <%= content_tag(:div, flash[:alert], :id => "flash_alert", class: "alert alert-danger") if flash[:alert] %>
     <div class="field my-3 w-25 m-auto">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "form-control" %>
     </div>
