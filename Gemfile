@@ -32,7 +32,7 @@ gem 'ancestry'
 gem 'activeadmin'
 # Plus integrations with:
 gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
-gem 'aws-sdk-s3'
+# gem 'aws-sdk-s3'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-rails_csrf_protection'
 # Reduces boot times through caching; required in config/boot.rb
