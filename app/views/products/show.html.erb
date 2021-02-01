@@ -15,7 +15,11 @@
 
   <div class="py-5">
     <h3>Price: <%= number_to_currency(@product.price, separator: ",", delimiter: " ") %></h3>
-    <%= link_to "Add to cart", product_order_items_path(@product), method: :post, class: "btn btn-lg btn-outline-success my-2" if user_signed_in? %>
+    <% if user_signed_in? %>
+      <%= link_to "Add to cart", product_order_items_path(@product), method: :post, class: "btn btn-lg btn-outline-success my-2" %>
+    <% else %>
+      <%= link_to "Login or register before buying", user_session_path, class: "btn btn-lg btn-outline-success my-2" %>
+    <% end %>
   </div>
 
   <div>
@@ -23,6 +27,7 @@
       <h3 class="text-center">Comments:</h3>
       <% if user_signed_in? %>
         <%= link_to "Add comment", new_comment_path(product_id: @product), method: :get, class: "btn btn-primary my-2" if user_purchased_product?(@product) %>
+        <% else %>
       <% end %>
     </div>
 

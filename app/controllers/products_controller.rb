@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
                   Product.all.order(created_at: :ASC).paginate(page: params[:page], per_page: 8)
                 end
     @categories = Category.where(parent_id: nil)
+    @category = Category.(params[:category_id]) if @category.present?
   end
 
   def show

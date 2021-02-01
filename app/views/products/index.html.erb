@@ -52,6 +52,7 @@
     <% end %>
   </div>
   <% if @products.present? %>
+    <h2 class="text-center mb-3 text-uppercase shadow rounded bg-white"><%= @category.name if @category.present?%></h2>
     <%= render @products %>
   <% else %>
     <h4 class="text-center m-5">There are no products in this category yet</h4>

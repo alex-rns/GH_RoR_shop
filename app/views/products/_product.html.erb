@@ -1,5 +1,6 @@
 <div class="col-md-6 col-lg-4 col-xxl-3 col-12 align-items-center">
   <div class="card m-3 h-100 m-auto w-100" style="width: 18rem;">
+    <h6 class="m-2">⭐<%= product.rating.round(2) %></h6>
     <%= link_to(image_tag(product.image.empty? ? "product-placeholder.jpg" : product.image, class: "card-img-top p-2"), product_path(product)) %>
     <div class="card-body">
       <h5 class="card-title fw-light"><%= link_to product.name.truncate(40), product_path(product) %></h5>
@@ -7,7 +8,13 @@
     </div>
     <div class="card-footer d-flex justify-content-between align-items-center px-3">
       <small class="card-price m-0 pr-1 fw-bolder"><%= number_to_currency(product.price, separator: ",", delimiter: " ") %></small>
-      <%= link_to "Add to cart", product_order_items_path(product), method: :post, class: "btn btn-small btn-primary" if user_signed_in? %>
+      <% if user_signed_in? %>
+        <%= link_to "Add to cart", product_order_items_path(product), method: :post, class: "btn btn-small btn-primary"%>
+      <% else %>
+        <div title = "Login or register before buying" >
+          <%= link_to "Add to cart", "#", class: "btn btn-small btn-primary disabled" %>
+        </div>
+        <% end %>
     </div>
   </div>
 </div>
