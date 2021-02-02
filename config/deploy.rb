@@ -3,7 +3,7 @@ lock "~> 3.15.0"
 set :repo_url, "git@github.com:alex-rns/GH_RoR_shop.git"
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-set :user, "deployer"
+set :user, "deployer1"
 set :rvm_ruby_version, "2.7.0"
 set :pty, true
 
