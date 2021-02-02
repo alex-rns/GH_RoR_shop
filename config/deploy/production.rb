@@ -6,5 +6,5 @@ set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :environment, "production"
 set :rails_env,   "production"
 
-set :nginx_server_name, "drumshop.sytes.net"
+set :nginx_server_name, "104.248.19.68"
 set :puma_conf, "#{shared_path}/config/puma.rb"
