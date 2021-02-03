@@ -83,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: GH_RoR_shop_production1
+  database: GH_RoR_shop_production
   username: <%= Rails.application.credentials.db_user %>
   password: <%= Rails.application.credentials.db_password %>

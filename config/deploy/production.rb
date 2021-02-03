@@ -1,10 +1,10 @@
-server "104.248.19.68", user: "#{fetch(:user)}", roles: %w{app db web}, primary: true
+server "104.248.133.233", user: "#{fetch(:user)}", roles: %w{app db web}, primary: true
 
-set :application, "drumshop"
+set :application, "drum-shop"
 set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 
 set :environment, "production"
 set :rails_env,   "production"
 
-set :nginx_server_name, "104.248.19.68"
+set :nginx_server_name, "104.248.133.233"
 set :puma_conf, "#{shared_path}/config/puma.rb"
