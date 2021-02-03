@@ -7,15 +7,15 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto fs-5">
-      <li class="nav-item">
-        <%= link_to "About", page_path(page: 'about'), class: "nav-link" %>
+    <ul class="navbar-nav mr-auto fs-5 text-danger align-items-center">
+      <li class="nav-item p-2">
+        <%= link_to_unless_current "About", page_path(page: 'about'),  class: "nav-link p-0" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Shipping", page_path(page: 'shipping'), class: "nav-link" %>
+      <li class="nav-item p-2">
+        <%= link_to_unless_current "Shipping", page_path(page: 'shipping'),  class: "nav-link p-0" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Warranty", page_path(page: 'warranty'), class: "nav-link" %>
+      <li class="nav-item p-2">
+        <%= link_to_unless_current "Warranty", page_path(page: 'warranty'),  class: "nav-link p-0" %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
