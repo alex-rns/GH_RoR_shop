@@ -19,7 +19,7 @@
 
 $bg-color: #eee;
 
-body{
+body {
   background: $bg-color;
 }
 
@@ -29,4 +29,10 @@ body{
 
 .card img {
   min-height: 250px;
+}
+
+@media (max-width: 768px) {
+  #sidebarMenu {
+    width: 100% !important;
+  }
 }
