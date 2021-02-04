@@ -1,7 +1,7 @@
 <h2 class="text-center mt-5">Cart</h2>
 <% if current_order.status == "ordered" || @items.empty? %>
   <div class="text-center">
-    <%= image_tag "https://cdn.onlinewebfonts.com/svg/img_456359.png", class: "img-fluid w-50" %>
+    <%= image_tag "empty_cart.png", class: "img-fluid w-50" %>
     <h4 class="pt-4">Cart is empty</h4>
   </div>
 <% else %>
