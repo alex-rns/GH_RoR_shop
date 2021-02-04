@@ -7,7 +7,7 @@
   </button>
 
   <div class="collapse navbar-collapse collapse-menu">
-    <ul class="navbar-nav mr-auto text-danger align-items-center">
+    <ul class="navbar-nav mr-auto text-danger align-items-center flex-row justify-content-center">
       <li class="nav-item p-2">
         <%= link_to_unless_current "About", page_path(page: 'about'), class: "nav-link p-0" %>
       </li>
@@ -35,13 +35,13 @@
         <% end %>
       </li>
       <% if user_signed_in? %>
-        <li class="p-2 d-grid">
+        <li class="p-lg-2 d-grid">
           <%= link_to "Show cart", order_path(current_order), class: "btn btn-success" %>
           <p class="text-white m-auto text-nowrap"> Products in cart:
             <%= current_order && current_order.status == "in_progress" ? current_order.order_items.size : 0 %>
           </p>
         </li>
-        <li class="p-2 d-grid">
+        <li class="p-lg-2 d-grid">
           <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
           <p class="text-white m-auto">
             <%= current_user.email %>
