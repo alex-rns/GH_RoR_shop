@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <h2 class="px-2 m-0 text-uppercase">
+  <h2 class="pl-2 m-0 text-uppercase">
     <%= link_to (image_tag "logo2.png", class: "w-25 p-1", width: "70", height: "50") + "drumshop", home_path, class: "text-decoration-none text-white text-nowrap fs-4" %>
   </h2>
   <button class="navbar-toggler d-lg-none collapsed" type="button" data-toggle="collapse" data-target=".collapse-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,14 +16,6 @@
       </li>
       <li class="nav-item p-2">
         <%= link_to_unless_current "Warranty", page_path(page: 'warranty'), class: "nav-link p-0" %>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="#">There is</a>
-          <a class="dropdown-item" href="#">nothing</a>
-          <a class="dropdown-item" href="#">here yet</a>
-        </div>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
@@ -45,7 +37,7 @@
       <% if user_signed_in? %>
         <li class="p-2 d-grid">
           <%= link_to "Show cart", order_path(current_order), class: "btn btn-success" %>
-          <p class="text-white m-auto"> Products in cart:
+          <p class="text-white m-auto text-nowrap"> Products in cart:
             <%= current_order && current_order.status == "in_progress" ? current_order.order_items.size : 0 %>
           </p>
         </li>

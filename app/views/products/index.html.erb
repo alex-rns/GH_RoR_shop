@@ -1,27 +1,25 @@
 <div class="row g-0">
-  <div class="sorting d-inline-flex align-items-start my-3">
+  <div class="sorting d-md-inline-flex align-items-start my-3">
     <!--   with nested routes here I used controller_name instead current_page-->
     <% if controller.controller_name == "categories" %>
-      <div>
-        <div class="dropdown">
-          <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-             data-toggle="dropdown" aria-expanded="false">
-            Order by
-          </a>
-          <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
-            <%= link_to 'Expensive first', category_path(sort: 'expensive'), class: 'dropdown-item' %>
-            <%= link_to 'Cheapest first', category_path(sort: 'cheapest'), class: 'dropdown-item' %>
-            <%= link_to 'Alphabetically', category_path(sort: 'alphabetically'), class: 'dropdown-item' %>
-          </div>
+      <div class="dropdown">
+        <a class="btn btn-outline-primary dropdown-toggle d-block mb-md-0 mb-3" href="#" role="button" id="dropdownMenuLink"
+           data-toggle="dropdown" aria-expanded="false">
+          Order by
+        </a>
+        <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+          <%= link_to 'Expensive first', category_path(sort: 'expensive'), class: 'dropdown-item' %>
+          <%= link_to 'Cheapest first', category_path(sort: 'cheapest'), class: 'dropdown-item' %>
+          <%= link_to 'Alphabetically', category_path(sort: 'alphabetically'), class: 'dropdown-item' %>
         </div>
       </div>
 
-      <div class="d-inline-flex mx-3 align-items-start">
-        <p class="mx-3 mb-0 align-self-center text-nowrap d-md-block d-none">Sort by price:</p>
+      <div class="d-inline-flex mx-0 mx-md-3 align-items-start">
+<!--        <p class="mx-3 mb-0 align-self-center text-nowrap d-md-block d-none">Sort by price:</p>-->
         <%= form_with url: category_path, method: :get, class: "d-inline-flex w-auto" do |form| %>
           <%= form.number_field :min_price, value: @category.products.map(&:price).min, step: 0.01, class: 'price-form form-control', placeholder: 'Min' %>
           <%= form.number_field :max_price, value: @category.products.map(&:price).max, step: 0.01, class: 'price-form form-control', placeholder: 'Max' %>
-          <%= form.submit 'Find', class: 'btn btn-primary' %>
+          <%= form.submit 'Sort by price', class: 'btn btn-primary' %>
         <% end %>
       </div>
     <% elsif controller.controller_name == "products" %>
@@ -52,7 +50,7 @@
     <% end %>
   </div>
   <% if @products.present? %>
-    <h2 class="text-center mb-3 text-uppercase shadow rounded bg-white"><%= @category.name if @category.present?%></h2>
+    <h2 class="text-center mb-3 text-uppercase shadow rounded bg-white"><%= @category.name if @category.present? %></h2>
     <%= render @products %>
   <% else %>
     <h4 class="text-center m-5">There are no products in this category yet</h4>
