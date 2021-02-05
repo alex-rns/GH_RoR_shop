@@ -36,3 +36,9 @@ body {
     width: 100% !important;
   }
 }
+
+@media (max-width: 400px) {
+  .navbar h2 {
+    width: 280px;
+  }
+}
