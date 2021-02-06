@@ -80,3 +80,13 @@ https://github.com/omniauth/omniauth-github
 https://github.com/heartcombo/devise
 gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2' - devise version with omniauth
 https://github.com/cookpad/omniauth-rails_csrf_protection
+
+# **GeekHub X | RoR | Homework 14**
+
+![site_screen](https://user-images.githubusercontent.com/23439223/107129013-f8b18c80-68ca-11eb-8823-d6f7d89261ad.png)
+
+## Assigned task
+
+Задача простая – надо закинуть ваш интернет-магазин на Диджитал оушен.
+
+https://drum-shop.sytes.net/
