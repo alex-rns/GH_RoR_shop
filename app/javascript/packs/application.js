@@ -8,8 +8,9 @@ import Turbolinks from "turbolinks"
 // import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
-
+import "magnify"
 import './products.js'
+import './zoom.js'
 
 document.addEventListener("turbolinks:load", function() {
     $(function () {

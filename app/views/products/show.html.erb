@@ -6,7 +6,7 @@
 
   <div class="d-lg-flex">
     <div class="col-lg-4">
-      <%= image_tag @product.image, class: "img-fluid w-100" %>
+      <%= image_tag @product.image, class: "img-fluid w-100 zoom" , data: {:magnify_src => @product.image} %>
     </div>
     <div class="col-lg-8 pt-2 pt-md-0">
       <p class="pl-3">Description: <%= @product.description %></p>

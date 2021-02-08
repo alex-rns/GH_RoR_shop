@@ -4017,7 +4017,7 @@ jquery-ujs@^1.2.2:
   dependencies:
     jquery ">=1.8.0"
 
-jquery@>=1.8.0, jquery@^3.4.1, jquery@^3.5.1:
+jquery@>=1.7.0, jquery@>=1.8.0, jquery@^3.4.1, jquery@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
   integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==
@@ -4279,6 +4279,13 @@ lru-cache@^6.0.0:
   integrity sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==
   dependencies:
     yallist "^4.0.0"
+
+magnify@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/magnify/-/magnify-2.3.3.tgz#e6c97483748467424f44b7e3f1724f34d05ce7bf"
+  integrity sha512-fAM1MrUwqVBG2sS2a8lWoWCyONgF9+QXX85hCzmfLD/xKBM9FgoKMPjiTvrMa9o+fBlaZsKV60Z3ERVU+WEsSg==
+  dependencies:
+    jquery ">=1.7.0"
 
 make-dir@^2.0.0:
   version "2.1.0"
